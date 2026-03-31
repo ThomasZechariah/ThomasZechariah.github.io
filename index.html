@@ -4,8 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Thomas Zechariah | Computer Engineering @ Georgia Tech</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+
   <style>
     :root {
       --bg: #0a0c10;
@@ -21,467 +23,140 @@
       --mono-font: 'DM Mono', monospace;
       --body-font: 'Outfit', sans-serif;
     }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body { background: var(--bg); color: var(--text); font-family: var(--body-font); font-size: 16px; line-height: 1.7; overflow-x: hidden; }
-    body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events: none; z-index: 0; opacity: 0.4; }
 
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 4rem; background: rgba(10,12,16,0.88); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); }
-    .nav-logo { font-family: var(--mono-font); font-size: 0.85rem; color: var(--accent); letter-spacing: 0.1em; text-decoration: none; }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a { font-family: var(--mono-font); font-size: 0.74rem; color: var(--muted); text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: var(--body-font); }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      display: flex;
+      justify-content: space-between;
+      padding: 1.2rem 4rem;
+      background: rgba(10,12,16,0.9);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+    }
+
+    .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.75rem; }
     .nav-links a:hover { color: var(--accent); }
 
-    #home { min-height: 100vh; display: flex; align-items: center; padding: 8rem 4rem 4rem; position: relative; overflow: hidden; }
-    .hero-grid-bg { position: absolute; inset: 0; background-image: linear-gradient(rgba(0,212,170,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,212,170,0.04) 1px, transparent 1px); background-size: 48px 48px; z-index: 0; }
-    .hero-glow { position: absolute; width: 700px; height: 700px; border-radius: 50%; background: radial-gradient(circle, rgba(0,212,170,0.07) 0%, transparent 70%); top: -150px; right: -100px; z-index: 0; }
-    .hero-glow2 { position: absolute; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, rgba(59,130,246,0.06) 0%, transparent 70%); bottom: -100px; left: 200px; z-index: 0; }
-    .hero-content { position: relative; z-index: 1; max-width: 820px; }
-    .hero-tag { display: inline-block; font-family: var(--mono-font); font-size: 0.75rem; color: var(--accent); letter-spacing: 0.15em; text-transform: uppercase; border: 1px solid rgba(0,212,170,0.3); padding: 0.3rem 0.9rem; border-radius: 2px; margin-bottom: 1.8rem; animation: fadeUp 0.6s ease both; }
-    .hero-name { font-family: var(--heading-font); font-size: clamp(3rem, 7vw, 5.5rem); line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 1.4rem; animation: fadeUp 0.6s 0.1s ease both; }
-    .hero-name em { color: var(--accent); font-style: italic; }
-    .hero-sub { font-size: 1.08rem; color: var(--muted); max-width: 620px; font-weight: 300; animation: fadeUp 0.6s 0.2s ease both; }
+    section { padding: 6rem 4rem; }
 
-    section { padding: 6rem 4rem; position: relative; z-index: 1; }
-    .section-header { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 3.5rem; }
-    .section-num { font-family: var(--mono-font); font-size: 0.75rem; color: var(--accent); letter-spacing: 0.1em; }
-    .section-title { font-family: var(--heading-font); font-size: clamp(1.8rem, 4vw, 3rem); letter-spacing: -0.02em; }
-    .section-line { flex: 1; height: 1px; background: var(--border); max-width: 300px; }
+    /* HERO */
+    #home {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+    }
 
-    #about { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
-    .about-text p { color: var(--muted); margin-bottom: 1.2rem; font-size: 1.02rem; font-weight: 300; }
-    .about-text p strong { color: var(--text); font-weight: 500; }
-    .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
-    .stat-card { background: var(--surface2); border: 1px solid var(--border); border-radius: 6px; padding: 1.4rem; transition: border-color 0.2s; }
-    .stat-card:hover { border-color: var(--accent); }
-    .stat-value { font-family: var(--heading-font); font-size: 1.8rem; color: var(--accent); line-height: 1; margin-bottom: 0.4rem; }
-    .stat-label { font-size: 0.78rem; color: var(--muted); font-family: var(--mono-font); letter-spacing: 0.05em; }
+    .hero-flex {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
 
-    .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px,1fr)); gap: 1.4rem; }
-    .skill-group { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 1.6rem; transition: border-color 0.2s, transform 0.2s; }
-    .skill-group:hover { border-color: var(--accent2); transform: translateY(-3px); }
-    .skill-group-label { font-family: var(--mono-font); font-size: 0.72rem; color: var(--accent2); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1rem; }
-    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-    .skill-tag { font-family: var(--mono-font); font-size: 0.76rem; color: var(--text); background: var(--surface2); border: 1px solid var(--border); padding: 0.25rem 0.65rem; border-radius: 3px; }
+    .hero-name {
+      font-family: var(--heading-font);
+      font-size: clamp(3rem, 7vw, 5rem);
+    }
 
-    .timeline { position: relative; padding-left: 2rem; }
-    .timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 1px; background: linear-gradient(to bottom, var(--accent), var(--accent2), transparent); }
-    .timeline-item { position: relative; margin-bottom: 2.8rem; padding-left: 2rem; }
-    .timeline-item::before { content: ''; position: absolute; left: -2.4rem; top: 0.5rem; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); border: 2px solid var(--bg); box-shadow: 0 0 0 2px var(--accent); }
-    .timeline-meta { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.3rem; }
-    .timeline-role { font-size: 1.05rem; font-weight: 600; color: var(--text); }
-    .timeline-date { font-family: var(--mono-font); font-size: 0.72rem; color: var(--accent); border: 1px solid rgba(0,212,170,0.3); padding: 0.2rem 0.6rem; border-radius: 2px; white-space: nowrap; }
-    .timeline-company { font-size: 0.86rem; color: var(--muted); margin-bottom: 0.7rem; font-family: var(--mono-font); }
-    .timeline-desc { color: var(--muted); font-size: 0.93rem; font-weight: 300; }
-    .timeline-desc ul { padding-left: 1.2rem; margin-top: 0.4rem; }
-    .timeline-desc li { margin-bottom: 0.35rem; }
+    .hero-sub { color: var(--muted); }
 
-    #projects { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-    .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px,1fr)); gap: 1.4rem; }
-    .project-card { background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 1.8rem; transition: border-color 0.2s, transform 0.2s; display: flex; flex-direction: column; }
-    .project-card:hover { border-color: var(--accent); transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.4); }
-    .project-card.featured { grid-column: 1 / -1; border-color: rgba(0,212,170,0.25); background: linear-gradient(135deg, var(--surface2) 0%, rgba(0,212,170,0.05) 100%); }
-    .project-badge { display: inline-block; font-family: var(--mono-font); font-size: 0.68rem; color: var(--accent3); border: 1px solid rgba(245,158,11,0.4); padding: 0.2rem 0.6rem; border-radius: 2px; margin-bottom: 1rem; letter-spacing: 0.1em; text-transform: uppercase; }
-    .project-title { font-family: var(--heading-font); font-size: 1.45rem; margin-bottom: 0.5rem; }
-    .project-org { font-family: var(--mono-font); font-size: 0.76rem; color: var(--accent2); margin-bottom: 1rem; }
-    .project-desc { color: var(--muted); font-size: 0.93rem; font-weight: 300; flex: 1; }
-    .project-desc ul { padding-left: 1.2rem; margin-top: 0.5rem; }
-    .project-desc li { margin-bottom: 0.35rem; }
-    .project-tech { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1.2rem; }
-    .tech-tag { font-family: var(--mono-font); font-size: 0.7rem; color: var(--accent); background: rgba(0,212,170,0.08); border: 1px solid rgba(0,212,170,0.2); padding: 0.2rem 0.55rem; border-radius: 2px; }
+    .profile-img {
+      width: 200px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      transition: 0.3s;
+    }
 
-    .awards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px,1fr)); gap: 1.2rem; }
-    .award-card { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 1.4rem; transition: border-color 0.2s, transform 0.2s; display: flex; gap: 1rem; align-items: flex-start; }
-    .award-card:hover { border-color: var(--accent3); transform: translateY(-2px); }
-    .award-icon { font-size: 1.4rem; flex-shrink: 0; }
-    .award-title { font-size: 0.93rem; font-weight: 600; color: var(--text); margin-bottom: 0.25rem; }
-    .award-issuer { font-family: var(--mono-font); font-size: 0.72rem; color: var(--accent3); }
+    .profile-img:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+    }
 
-    .courses-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px,1fr)); gap: 1.2rem; }
-    .course-card { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 1.4rem; transition: border-color 0.2s; }
-    .course-card:hover { border-color: var(--accent2); }
-    .course-title { font-weight: 600; margin-bottom: 0.4rem; font-size: 0.93rem; color: var(--text); }
-    .course-desc { font-size: 0.83rem; color: var(--muted); font-weight: 300; }
+    /* ABOUT */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+    }
 
-    /* CAREER GOALS */
-    #goals { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-    .goals-intro { color: var(--muted); font-size: 1.02rem; font-weight: 300; max-width: 700px; margin-bottom: 3rem; line-height: 1.8; }
-    .goals-milestones { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; margin-bottom: 3rem; }
-    .milestone-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1.8rem; transition: border-color 0.2s, transform 0.2s; }
-    .milestone-card:hover { border-color: var(--accent); transform: translateY(-3px); }
-    .milestone-label { font-family: var(--mono-font); font-size: 0.72rem; color: var(--accent); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.7rem; }
-    .milestone-text { color: var(--muted); font-size: 0.95rem; font-weight: 300; }
-    .goals-steps-label { font-family: var(--mono-font); font-size: 0.72rem; color: var(--accent2); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1.2rem; }
-    .goals-steps { display: flex; flex-direction: column; gap: 1rem; }
-    .goal-step { display: flex; gap: 1.4rem; align-items: flex-start; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 1.2rem 1.5rem; transition: border-color 0.2s; }
-    .goal-step:hover { border-color: var(--accent2); }
-    .goal-step-num { font-family: var(--mono-font); font-size: 0.75rem; color: var(--accent); background: rgba(0,212,170,0.1); border: 1px solid rgba(0,212,170,0.3); border-radius: 3px; padding: 0.2rem 0.6rem; white-space: nowrap; flex-shrink: 0; margin-top: 0.15rem; }
-    .goal-step-text { color: var(--muted); font-size: 0.95rem; font-weight: 300; }
+    .profile-img-large {
+      width: 100%;
+      max-width: 320px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      transition: 0.3s;
+    }
 
-    #resume { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); text-align: center; }
-    .resume-box { max-width: 480px; margin: 0 auto; background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 2.8rem; }
-    .resume-box h3 { font-family: var(--heading-font); font-size: 1.8rem; margin-bottom: 0.8rem; }
-    .resume-box p { color: var(--muted); font-size: 0.93rem; margin-bottom: 2rem; font-weight: 300; }
-    .btn { display: inline-block; padding: 0.75rem 1.8rem; font-family: var(--mono-font); font-size: 0.82rem; letter-spacing: 0.08em; text-decoration: none; border-radius: 3px; transition: all 0.2s; cursor: pointer; border: none; }
-    .btn-primary { background: var(--accent); color: #0a0c10; font-weight: 500; }
-    .btn-primary:hover { background: #00efc0; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,212,170,0.3); }
-
-    .contact-links { display: flex; flex-direction: column; gap: 0.9rem; max-width: 520px; }
-    .contact-link { display: flex; align-items: center; gap: 1rem; color: var(--muted); text-decoration: none; font-size: 0.93rem; transition: color 0.2s; padding: 0.9rem 1.1rem; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; }
-    .contact-link:hover { color: var(--accent); border-color: var(--accent); }
-    .contact-link-icon { font-size: 1.1rem; width: 22px; text-align: center; }
-
-    footer { border-top: 1px solid var(--border); padding: 2rem 4rem; display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 1; }
-    footer p { font-family: var(--mono-font); font-size: 0.73rem; color: var(--muted); }
-
-    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .profile-img-large:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+    }
 
     @media (max-width: 900px) {
-      nav { padding: 1rem 1.5rem; }
-      .nav-links { gap: 1rem; }
+      .about-grid { grid-template-columns: 1fr; }
+      nav { padding: 1rem; }
       section { padding: 4rem 1.5rem; }
-      #home { padding: 7rem 1.5rem 3rem; }
-      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-      .goals-milestones { grid-template-columns: 1fr; }
-      footer { flex-direction: column; gap: 0.5rem; text-align: center; padding: 1.5rem; }
-    }
-    @media (max-width: 600px) {
-      .nav-links { display: none; }
-      .hero-name { font-size: 2.6rem; }
-      .projects-grid, .awards-grid { grid-template-columns: 1fr; }
-      .about-stats { grid-template-columns: 1fr 1fr; }
     }
   </style>
 </head>
+
 <body>
 
-  <nav>
-    <a href="#home" class="nav-logo">TZ</a>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#activities">Activities</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#awards">Awards</a></li>
-      <li><a href="#coursework">Coursework</a></li>
-      <li><a href="#goals">Goals</a></li>
-      <li><a href="#resume">Resume</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+<nav>
+  <div style="color:var(--accent)">TZ</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
 
-  <!-- HERO -->
-  <section id="home">
-    <div class="hero-grid-bg"></div>
-    <div class="hero-glow"></div>
-    <div class="hero-glow2"></div>
-    <div class="hero-content">
-      <span class="hero-tag">Computer Engineering @ Georgia Tech · Class of 2029</span>
-      <h1 class="hero-name">Thomas<br><em>Zechariah</em></h1>
-      <p class="hero-sub">Specializing in Computing Hardware &amp; Emerging Architectures and Cybersecurity.</p>
-    </div>
-  </section>
+<!-- HERO -->
+<section id="home">
+  <div class="hero-flex">
 
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="section-header reveal">
-      <span class="section-num">01</span>
-      <h2 class="section-title">About Me</h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="about-grid">
-      <div class="about-text reveal">
-        <p>Hey — I'm <strong>Thomas Zechariah</strong>, a Computer Engineering student at <strong>Georgia Institute of Technology</strong> from <strong>Johns Creek, GA</strong>. I'm specializing in <strong>Computing Hardware &amp; Emerging Architectures (CHEA)</strong> and <strong>Cybersecurity</strong>.</p>
-        <p>I came into Georgia Tech after attending <strong>Northview High School</strong>, where I excelled in rigorous coursework, was named for <strong>National Merit</strong>, and led multiple organizations as president and vice-president. I was also a <strong>Dual Enrollment student</strong>  at Georgia Tech before officially enrolling.</p>
-        <p>I'm fluent in <strong>English</strong> and <strong>Malayalam</strong>, and can speak conversational <strong>Spanish</strong>. Outside of class, I'm on <strong>HyTech Racing's Electrical Team</strong>, and I also tutor through <strong>Knack</strong>. I'm always ready to learn more and meet new people, so don't hesitate to reach out.</p>
-      </div>
-      <div class="about-stats reveal">
-        <div class="stat-card"><div class="stat-value">4.0</div><div class="stat-label">GPA at Georgia Tech</div></div>
-        <div class="stat-card"><div class="stat-value">11</div><div class="stat-label">AP Exams Scored a 5</div></div>
-        <div class="stat-card"><div class="stat-value">3</div><div class="stat-label">Languages Spoken</div></div>
-        <div class="stat-card"><div class="stat-value">Several</div><div class="stat-label">Internships &amp; Roles</div></div>
-        <div class="stat-card"><div class="stat-value">GT '29</div><div class="stat-label">Expected Graduation</div></div>
-      </div>
+    <div>
+      <h1 class="hero-name">Thomas<br><em style="color:var(--accent)">Zechariah</em></h1>
+      <p class="hero-sub">Computer Engineering @ Georgia Tech · Hardware & Cybersecurity</p>
     </div>
 
-    <div class="section-header reveal" style="margin-top: 4rem;">
-      <span class="section-num" style="color:var(--accent2)">→</span>
-      <h3 class="section-title" style="font-size:1.6rem;">Technical Skills</h3>
-    </div>
-    <div class="skills-grid reveal">
-      <div class="skill-group">
-        <div class="skill-group-label">Programming Languages</div>
-        <div class="skill-tags">
-          <span class="skill-tag">Java</span><span class="skill-tag">Python</span><span class="skill-tag">C</span><span class="skill-tag">HTML/CSS/JS</span><span class="skill-tag">Node.js</span><span class="skill-tag">Vue.js</span><span class="skill-tag">SystemVerilog</span><span class="skill-tag">RISC-V Assembly</span><span class="skill-tag">MIPS</span><span class="skill-tag">VHDL</span>
-        </div>
-      </div>
-      <div class="skill-group">
-        <div class="skill-group-label">Hardware &amp; Embedded</div>
-        <div class="skill-tags">
-          <span class="skill-tag">FPGAs</span><span class="skill-tag">Breadboards</span><span class="skill-tag">Oscilloscope</span><span class="skill-tag">Sensors</span><span class="skill-tag">Teensy MCU</span><span class="skill-tag">Soldering</span><span class="skill-tag">UART</span><span class="skill-tag">One-Wire</span><span class="skill-tag">IPMI</span>
-        </div>
-      </div>
-      <div class="skill-group">
-        <div class="skill-group-label">Software &amp; Platforms</div>
-        <div class="skill-tags">
-          <span class="skill-tag">Linux (Ubuntu)</span><span class="skill-tag">Windows</span><span class="skill-tag">VS Code</span><span class="skill-tag">IntelliJ IDEA</span><span class="skill-tag">Altera Quartus</span><span class="skill-tag">SolidWorks</span><span class="skill-tag">Altium Designer</span><span class="skill-tag">Logger Pro</span>
-        </div>
-      </div>
-      <div class="skill-group">
-        <div class="skill-group-label">Leadership &amp; Languages</div>
-        <div class="skill-tags">
-          <span class="skill-tag">English (Fluent)</span><span class="skill-tag">Malayalam (Fluent)</span><span class="skill-tag">Spanish (Conversational)</span><span class="skill-tag">Team Leadership</span><span class="skill-tag">Executive Presentations</span><span class="skill-tag">Tutoring</span>
-        </div>
-      </div>
-    </div>
-  </section>
+    <!-- CASUAL IMAGE -->
+    <img src="images/casual.jpg" alt="Casual" class="profile-img">
 
-  <!-- EXPERIENCE -->
-  <section id="experience" style="background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
-    <div class="section-header reveal">
-      <span class="section-num">02</span>
-      <h2 class="section-title">Experience</h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="timeline">
-      <div class="timeline-item reveal">
-        <div class="timeline-meta"><span class="timeline-role">Electrical Team Member</span><span class="timeline-date">Sep 2025 – Present</span></div>
-        <div class="timeline-company">HyTech Racing · Georgia Tech</div>
-        <div class="timeline-desc"><ul><li>Built and tested sensor transceivers using <strong>One-Wire &amp; UART protocols</strong> with a <strong>Teensy microcontroller</strong>.</li><li>Performed soldering, assembly, and parts management for electrical components.</li></ul></div>
-      </div>
-      <div class="timeline-item reveal">
-        <div class="timeline-meta"><span class="timeline-role">Web Developer</span><span class="timeline-date">Feb – May 2025</span></div>
-        <div class="timeline-company">IVue Robotics · Cumming, GA</div>
-        <div class="timeline-desc"><ul><li>Developed multiple frontend features using <strong>Vue.js</strong>, enhancing UX and functionality.</li><li>Collaborated with designers on interactive elements, improving engagement across the site.</li></ul></div>
-      </div>
-      <div class="timeline-item reveal">
-        <div class="timeline-meta"><span class="timeline-role">Digital Marketing Intern</span><span class="timeline-date">Aug 2024 – May 2025</span></div>
-        <div class="timeline-company">FYEWEAR · Remote, Atlanta, GA</div>
-        <div class="timeline-desc"><ul><li>Collaborated on competitor analysis and retention marketing to optimize company growth.</li><li>Analyzed website and eyewear market trends to provide strategic advertising recommendations.</li></ul></div>
-      </div>
-      <div class="timeline-item reveal">
-        <div class="timeline-meta"><span class="timeline-role">Software Intern — SDR JSON Converter</span><span class="timeline-date">May – Aug 2024</span></div>
-        <div class="timeline-company">AMI US Holdings Inc. · Norcross, GA</div>
-        <div class="timeline-desc"><ul><li>Wrote 50% of a Python tool to convert Sensor Data Records into structured JSON using IPMI specifications.</li><li>Decoded SDRs at the bit level and presented results directly to AMI executives.</li><li>Expanded knowledge of OS fundamentals, algorithms, data structures, and networking.</li></ul></div>
-      </div>
-      <div class="timeline-item reveal">
-        <div class="timeline-meta"><span class="timeline-role">IT Lab Intern / MIS Department</span><span class="timeline-date">May – Aug 2023</span></div>
-        <div class="timeline-company">AMI US Holdings Inc. · Norcross, GA</div>
-        <div class="timeline-desc"><ul><li>Managed and troubleshot 50+ company PCs; decommissioned legacy systems and ensured inventory readiness.</li><li>Repurposed parts from 40+ damaged systems and submitted inventory reports to HR.</li><li>Configured employee systems to integrate with the corporate network.</li></ul></div>
-      </div>
-    </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ACTIVITIES -->
-  <section id="activities">
-    <div class="section-header reveal">
-      <span class="section-num">03</span>
-      <h2 class="section-title">Activities</h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="timeline">
-      <div class="timeline-item reveal">
-        <div class="timeline-meta"><span class="timeline-role">Tutor</span><span class="timeline-date">Jan 2026 – Present</span></div>
-        <div class="timeline-company">Knack Tutoring · Georgia Tech</div>
-        <div class="timeline-desc"><p>Provide peer tutoring to fellow Georgia Tech students in technical subjects through one-on-one instruction.</p></div>
-      </div>
-      <div class="timeline-item reveal">
-        <div class="timeline-meta"><span class="timeline-role">Vice President</span><span class="timeline-date">Aug 2024 – May 2025</span></div>
-        <div class="timeline-company">Computer Science National Honor Society · Northview HS</div>
-        <div class="timeline-desc"><p>Led chapter activities and helped peers develop programming skills through workshops and peer instruction.</p></div>
-      </div>
-      <div class="timeline-item reveal">
-        <div class="timeline-meta"><span class="timeline-role">Representative</span><span class="timeline-date">Aug 2023 – May 2025</span></div>
-        <div class="timeline-company">Principal Advisory Board · Northview HS</div>
-        <div class="timeline-desc"><p>Served as a student representative to school leadership, communicating student concerns and contributing to school-wide decision-making.</p></div>
-      </div>
-      <div class="timeline-item reveal">
-        <div class="timeline-meta"><span class="timeline-role">Emerging Leaders Program Graduate</span><span class="timeline-date">Aug 2023 – May 2024</span></div>
-        <div class="timeline-company">Greater North Fulton Chamber of Commerce · Fulton County, GA</div>
-        <div class="timeline-desc"><p>Completed a competitive leadership development program for high-achieving students in the North Fulton business community.</p></div>
-      </div>
-      <div class="timeline-item reveal">
-        <div class="timeline-meta"><span class="timeline-role">President</span><span class="timeline-date">Aug 2021 – May 2025</span></div>
-        <div class="timeline-company">121 Reach · Northview HS</div>
-        <div class="timeline-desc"><p>Led a student-run non-profit tutoring organization for 4 years, presiding over all club affairs, including weekly meetings, events, and officer discussions. </p></div>
-      </div>
-      <div class="timeline-item reveal">
-        <div class="timeline-meta"><span class="timeline-role">Volunteer</span><span class="timeline-date">Aug 2021 – May 2025</span></div>
-        <div class="timeline-company">Beta Club</div>
-        <div class="timeline-desc"><p>Active member and volunteer of Beta throughout high school</p></div>
-      </div>
-    </div>
-  </section>
+<!-- ABOUT -->
+<section id="about">
 
-  <!-- PROJECTS -->
-  <section id="projects">
-    <div class="section-header reveal">
-      <span class="section-num">04</span>
-      <h2 class="section-title">Projects</h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="projects-grid">
-      <div class="project-card featured reveal">
-        <span class="project-badge">Discovery Project</span>
-        <h3 class="project-title">ECE 1100 Discovery Project</h3>
-        <div class="project-org">Georgia Institute of Technology · ECE 1100</div>
-        <p class="project-desc">Work in progress!</p>
-        <div class="project-tech"><span class="tech-tag">ECE 1100</span><span class="tech-tag">Georgia Tech</span></div>
-      </div>
-      <div class="project-card reveal">
-        <h3 class="project-title">SDR JSON Converter</h3>
-        <div class="project-org">AMI US Holdings Inc. · Software Intern</div>
-        <p class="project-desc">Team-built software tool converting Sensor Data Records into structured JSON.<ul><li>Wrote 50% of the Python codebase using IPMI specifications.</li><li>Decoded SDRs at the bit level; presented directly to AMI executives.</li></ul></p>
-        <div class="project-tech"><span class="tech-tag">Python</span><span class="tech-tag">IPMI</span><span class="tech-tag">JSON</span><span class="tech-tag">Firmware</span></div>
-      </div>
-      <div class="project-card reveal">
-        <h3 class="project-title">HyTech EV Sensor Transceivers</h3>
-        <div class="project-org">HyTech Racing · Electrical Team</div>
-        <p class="project-desc">Hardware work on an electric race car, focused on sensor communication systems.<ul><li>Built and tested transceivers using One-Wire &amp; UART protocols.</li><li>Programmed with a Teensy microcontroller.</li></ul></p>
-        <div class="project-tech"><span class="tech-tag">UART</span><span class="tech-tag">One-Wire</span><span class="tech-tag">Teensy</span><span class="tech-tag">Embedded</span></div>
-      </div>
-    </div>
-  </section>
+  <h2 style="margin-bottom:2rem;">About Me</h2>
 
-  <!-- AWARDS -->
-  <section id="awards" style="background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
-    <div class="section-header reveal">
-      <span class="section-num">05</span>
-      <h2 class="section-title">Honors &amp; Awards</h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="awards-grid">
-      <div class="award-card reveal"><div class="award-icon">🏆</div><div><div class="award-title">National Merit Finalist</div><div class="award-issuer">National Merit Scholarship Corporation · Feb 2024</div></div></div>
-      <div class="award-card reveal"><div class="award-icon">🥉</div><div><div class="award-title">FBLA NLC: 3rd Place — Computer Problem Solving</div><div class="award-issuer">FBLA · Jul 2024</div></div></div>
-      <div class="award-card reveal"><div class="award-icon">🏅</div><div><div class="award-title">FBLA SLC: 6th Place — Public Service Announcement</div><div class="award-issuer">FBLA · Mar 2023</div></div></div>
-      <div class="award-card reveal"><div class="award-icon">🎓</div><div><div class="award-title">UGA Certificate of Merit</div><div class="award-issuer">University of Georgia · Apr 2024</div></div></div>
-      <div class="award-card reveal"><div class="award-icon">🌐</div><div><div class="award-title">National Spanish Exam — Gold Level</div><div class="award-issuer">NSE · May 2022</div></div></div>
-      <div class="award-card reveal"><div class="award-icon">📖</div><div><div class="award-title">Sunday School Regional Exam: 10th Grade with Distinction</div><div class="award-issuer">MSOSSA · Mar 2023</div></div></div>
-      <div class="award-card reveal"><div class="award-icon">🌿</div><div><div class="award-title">BETA NLC: 7th Place — Agriscience</div><div class="award-issuer">BETA · Jun 2022</div></div></div>
-    </div>
-    <div class="reveal" style="margin-top: 2.5rem; background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 2rem;">
-      <div style="font-family: var(--mono-font); font-size: 0.72rem; color: var(--accent2); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1rem;">AP Exam Scores — Northview High School</div>
-      <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
-        <span class="skill-tag">AP Physics C: Mechanics (5)</span><span class="skill-tag">AP Physics C: E&amp;M (5)</span><span class="skill-tag">AP Calc BC (5)</span><span class="skill-tag">AP Chemistry (5)</span><span class="skill-tag">AP Biology (5)</span><span class="skill-tag">AP Statistics (5)</span><span class="skill-tag">AP CS A (5)</span><span class="skill-tag">AP Env. Science (5)</span><span class="skill-tag">AP Language (5)</span><span class="skill-tag">AP Psychology (5)</span><span class="skill-tag">AP World History (5)</span><span class="skill-tag">AP Government (4)</span>
-      </div>
-    </div>
-  </section>
+  <div class="about-grid">
 
-  <!-- COURSEWORK -->
-  <section id="coursework">
-    <div class="section-header reveal">
-      <span class="section-num">06</span>
-      <h2 class="section-title">Relevant Coursework</h2>
-      <div class="section-line"></div>
+    <div>
+      <p>Hey — I'm Thomas Zechariah, a Computer Engineering student at Georgia Tech.</p>
+      <p>I specialize in hardware and cybersecurity, with experience in embedded systems and software development.</p>
+      <p>I'm always looking to learn and build impactful technology.</p>
     </div>
-    <div class="courses-grid">
-      <div class="course-card reveal">
-        <div class="course-title">Programming Hardware/Software Systems</div>
-        <div class="course-desc">High and low-level programming in C and MIPS; memory management, data structures, recursion, stack/heap usage, embedded systems, and performance optimization.</div>
-      </div>
-      <div class="course-card reveal">
-        <div class="course-title">Circuit Analysis</div>
-        <div class="course-desc">Linear RLC circuit analysis using node/mesh methods, network theorems, phasors, op-amps, frequency response, Bode plots, resonance, power analysis, and Laplace techniques.</div>
-      </div>
-      <div class="course-card reveal">
-        <div class="course-title">Digital Design Lab</div>
-        <div class="course-desc">Hands-on design and testing of digital circuits using FPGAs, VHDL, and discrete logic</div>
-      </div>
-      <div class="course-card reveal">
-        <div class="course-title">Digital System Design</div>
-        <div class="course-desc">introduces foundational levels of abstraction in digital computing, exploring from Boolean logic to combinational circuits, sequential elements, and simple processors.</div>
-      </div>
-      <div class="course-card reveal">
-        <div class="course-title">Object-Oriented Programming</div>
-        <div class="course-desc">Java-based course covering object-oriented design principles, inheritance, polymorphism, interfaces, and software engineering fundamentals.</div>
-      </div>
-      <div class="course-card reveal">
-        <div class="course-title">Data Structures &amp; Algorithms</div>
-        <div class="course-desc">In-depth study of fundamental data structures and algorithm theory, and applications of such concepts.</div>
-      </div>
-    </div>
-  </section>
 
-  <!-- CAREER GOALS -->
-  <section id="goals" style="background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
-    <div class="section-header reveal">
-      <span class="section-num">07</span>
-      <h2 class="section-title">Career Goals</h2>
-      <div class="section-line"></div>
+    <!-- FORMAL IMAGE -->
+    <div style="display:flex; justify-content:center;">
+      <img src="images/formal.jpg" alt="Formal" class="profile-img-large">
     </div>
-    <p class="goals-intro reveal">I'm studying Computer Engineering at Georgia Tech with a focus on hardware and cybersecurity. My goal is to build technical skills early on and turn them to support a career doing meaningful engineering work in those focuses.</p>
-    <div class="goals-milestones reveal">
-      <div class="milestone-card">
-        <div class="milestone-label">5-Year Goal</div>
-        <div class="milestone-text">Complete Georgia Tech's BS/MS program and begin my career in hardware or cybersecurity.</div>
-      </div>
-      <div class="milestone-card">
-        <div class="milestone-label">10-Year Goal</div>
-        <div class="milestone-text">Land a stable, senior-level role in hardware or security — and eventually move into a lead engineering position.</div>
-      </div>
-    </div>
-    <div class="reveal">
-      <div class="goals-steps-label">How I'm getting there</div>
-      <div class="goals-steps">
-        <div class="goal-step">
-          <span class="goal-step-num">01</span>
-          <span class="goal-step-text">Keep working in HyTech Racing's Electrical Team — PCB design and embedded systems.</span>
-        </div>
-        <div class="goal-step">
-          <span class="goal-step-num">02</span>
-          <span class="goal-step-text">Build experience with internships each summer, focused on firmware or cybersecurity.</span>
-        </div>
-        <div class="goal-step">
-          <span class="goal-step-num">03</span>
-          <span class="goal-step-text">Start undergraduate research in CHEA or cybersecurity to gain additional experience.</span>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- RESUME -->
-  <section id="resume">
-    <div class="section-header reveal" style="justify-content: center; flex-direction: column; align-items: center; text-align: center;">
-      <span class="section-num">08</span>
-      <h2 class="section-title">Resume</h2>
-    </div>
-    <div class="resume-box reveal">
-      <h3>Thomas Zechariah</h3>
-      <p>Computer Engineering @ Georgia Tech · CHEA &amp; Cybersecurity · Class of 2029</p>
-      <a href="resume.pdf" class="btn btn-primary" target="_blank">Download Resume (PDF)</a>
-    </div>
-  </section>
+  </div>
 
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="section-header reveal">
-      <span class="section-num">09</span>
-      <h2 class="section-title">Contact</h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="reveal">
-      <h3 style="font-family: var(--heading-font); font-size: 2rem; margin-bottom: 1.5rem;">Let's Connect</h3>
-      <div class="contact-links">
-        <a href="mailto:thomaszechariah2007@gmail.com" class="contact-link"><span class="contact-link-icon">✉</span>thomaszechariah2007@gmail.com</a>
-        <a href="tel:4705407910" class="contact-link"><span class="contact-link-icon">☎</span>(470) 540-7910</a>
-        <a href="https://www.linkedin.com/in/thomas-zechariah-9a05472aa/" target="_blank" class="contact-link"><span class="contact-link-icon">in</span>LinkedIn</a>
-      </div>
-    </div>
-  </section>
+</section>
 
-  <footer>
-    <p>Thomas Zechariah · Georgia Tech Computer Engineering · Class of 2029</p>
-  </footer>
+<!-- CONTACT -->
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Email: thomaszechariah2007@gmail.com</p>
+</section>
 
-  <script>
-    const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
-    }, { threshold: 0.08 });
-    reveals.forEach(el => observer.observe(el));
-  </script>
 </body>
 </html>
