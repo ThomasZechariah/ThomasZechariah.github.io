@@ -40,15 +40,7 @@
     .hero-tag { display: inline-block; font-family: var(--mono-font); font-size: 0.75rem; color: var(--accent); letter-spacing: 0.15em; text-transform: uppercase; border: 1px solid rgba(0,212,170,0.3); padding: 0.3rem 0.9rem; border-radius: 2px; margin-bottom: 1.8rem; animation: fadeUp 0.6s ease both; }
     .hero-name { font-family: var(--heading-font); font-size: clamp(3rem, 7vw, 5.5rem); line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 1.4rem; animation: fadeUp 0.6s 0.1s ease both; }
     .hero-name em { color: var(--accent); font-style: italic; }
-    .hero-sub { font-size: 1.08rem; color: var(--muted); max-width: 620px; margin-bottom: 1.8rem; font-weight: 300; animation: fadeUp 0.6s 0.2s ease both; }
-    .hero-badges { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 2.5rem; animation: fadeUp 0.6s 0.25s ease both; }
-    .hero-badge { font-family: var(--mono-font); font-size: 0.72rem; color: var(--accent3); background: rgba(245,158,11,0.08); border: 1px solid rgba(245,158,11,0.3); padding: 0.25rem 0.7rem; border-radius: 2px; letter-spacing: 0.06em; }
-    .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; animation: fadeUp 0.6s 0.3s ease both; }
-    .btn { display: inline-block; padding: 0.75rem 1.8rem; font-family: var(--mono-font); font-size: 0.82rem; letter-spacing: 0.08em; text-decoration: none; border-radius: 3px; transition: all 0.2s; cursor: pointer; border: none; }
-    .btn-primary { background: var(--accent); color: #0a0c10; font-weight: 500; }
-    .btn-primary:hover { background: #00efc0; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,212,170,0.3); }
-    .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
-    .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+    .hero-sub { font-size: 1.08rem; color: var(--muted); max-width: 620px; font-weight: 300; animation: fadeUp 0.6s 0.2s ease both; }
 
     section { padding: 6rem 4rem; position: relative; z-index: 1; }
     .section-header { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 3.5rem; }
@@ -112,18 +104,29 @@
     .course-title { font-weight: 600; margin-bottom: 0.4rem; font-size: 0.93rem; color: var(--text); }
     .course-desc { font-size: 0.83rem; color: var(--muted); font-weight: 300; }
 
-    #resume { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); text-align: center; }
-    .resume-box { max-width: 640px; margin: 0 auto; background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 2.8rem; }
-    .resume-box h3 { font-family: var(--heading-font); font-size: 1.8rem; margin-bottom: 0.8rem; }
-    .resume-box p { color: var(--muted); font-size: 0.93rem; margin-bottom: 1.8rem; font-weight: 300; }
-    .resume-highlights { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; margin-bottom: 2rem; }
-    .res-item { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 0.9rem; }
-    .res-item .val { font-family: var(--heading-font); font-size: 1.4rem; color: var(--accent); }
-    .res-item .lbl { font-family: var(--mono-font); font-size: 0.65rem; color: var(--muted); letter-spacing: 0.06em; }
+    /* CAREER GOALS */
+    #goals { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .goals-intro { color: var(--muted); font-size: 1.02rem; font-weight: 300; max-width: 700px; margin-bottom: 3rem; line-height: 1.8; }
+    .goals-milestones { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; margin-bottom: 3rem; }
+    .milestone-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1.8rem; transition: border-color 0.2s, transform 0.2s; }
+    .milestone-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+    .milestone-label { font-family: var(--mono-font); font-size: 0.72rem; color: var(--accent); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.7rem; }
+    .milestone-text { color: var(--muted); font-size: 0.95rem; font-weight: 300; }
+    .goals-steps-label { font-family: var(--mono-font); font-size: 0.72rem; color: var(--accent2); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1.2rem; }
+    .goals-steps { display: flex; flex-direction: column; gap: 1rem; }
+    .goal-step { display: flex; gap: 1.4rem; align-items: flex-start; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 1.2rem 1.5rem; transition: border-color 0.2s; }
+    .goal-step:hover { border-color: var(--accent2); }
+    .goal-step-num { font-family: var(--mono-font); font-size: 0.75rem; color: var(--accent); background: rgba(0,212,170,0.1); border: 1px solid rgba(0,212,170,0.3); border-radius: 3px; padding: 0.2rem 0.6rem; white-space: nowrap; flex-shrink: 0; margin-top: 0.15rem; }
+    .goal-step-text { color: var(--muted); font-size: 0.95rem; font-weight: 300; }
 
-    #contact { }
-    .contact-info h3 { font-family: var(--heading-font); font-size: 2rem; margin-bottom: 1rem; }
-    .contact-info p { color: var(--muted); font-size: 0.97rem; font-weight: 300; margin-bottom: 2rem; }
+    #resume { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); text-align: center; }
+    .resume-box { max-width: 480px; margin: 0 auto; background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 2.8rem; }
+    .resume-box h3 { font-family: var(--heading-font); font-size: 1.8rem; margin-bottom: 0.8rem; }
+    .resume-box p { color: var(--muted); font-size: 0.93rem; margin-bottom: 2rem; font-weight: 300; }
+    .btn { display: inline-block; padding: 0.75rem 1.8rem; font-family: var(--mono-font); font-size: 0.82rem; letter-spacing: 0.08em; text-decoration: none; border-radius: 3px; transition: all 0.2s; cursor: pointer; border: none; }
+    .btn-primary { background: var(--accent); color: #0a0c10; font-weight: 500; }
+    .btn-primary:hover { background: #00efc0; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,212,170,0.3); }
+
     .contact-links { display: flex; flex-direction: column; gap: 0.9rem; max-width: 520px; }
     .contact-link { display: flex; align-items: center; gap: 1rem; color: var(--muted); text-decoration: none; font-size: 0.93rem; transition: color 0.2s; padding: 0.9rem 1.1rem; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; }
     .contact-link:hover { color: var(--accent); border-color: var(--accent); }
@@ -138,12 +141,12 @@
 
     @media (max-width: 900px) {
       nav { padding: 1rem 1.5rem; }
-      .nav-links { gap: 1.2rem; }
+      .nav-links { gap: 1rem; }
       section { padding: 4rem 1.5rem; }
       #home { padding: 7rem 1.5rem 3rem; }
       .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .goals-milestones { grid-template-columns: 1fr; }
       footer { flex-direction: column; gap: 0.5rem; text-align: center; padding: 1.5rem; }
-      .resume-highlights { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 600px) {
       .nav-links { display: none; }
@@ -156,13 +159,15 @@
 <body>
 
   <nav>
-    <a href="#home" class="nav-logo">TZ_</a>
+    <a href="#home" class="nav-logo">TZ</a>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#activities">Activities</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#awards">Awards</a></li>
+      <li><a href="#coursework">Coursework</a></li>
+      <li><a href="#goals">Goals</a></li>
       <li><a href="#resume">Resume</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -176,18 +181,7 @@
     <div class="hero-content">
       <span class="hero-tag">Computer Engineering @ Georgia Tech · Class of 2029</span>
       <h1 class="hero-name">Thomas<br><em>Zechariah</em></h1>
-      <p class="hero-sub">Specializing in Computing Hardware & Emerging Architectures and Cybersecurity. 4.0 GPA. National Merit Finalist. Trilingual. Hands-on engineer.</p>
-      <div class="hero-badges">
-        <span class="hero-badge">🏆 National Merit Finalist</span>
-        <span class="hero-badge">🥉 FBLA NLC 3rd Place</span>
-        <span class="hero-badge">⚡ HyTech Racing</span>
-        <span class="hero-badge">📡 FPGA & Embedded Systems</span>
-        <span class="hero-badge">🌐 Trilingual</span>
-      </div>
-      <div class="hero-cta">
-        <a href="#projects" class="btn btn-primary">View My Work</a>
-        <a href="#contact" class="btn btn-outline">Get In Touch</a>
-      </div>
+      <p class="hero-sub">Specializing in Computing Hardware &amp; Emerging Architectures and Cybersecurity.</p>
     </div>
   </section>
 
@@ -200,16 +194,15 @@
     </div>
     <div class="about-grid">
       <div class="about-text reveal">
-        <p>Hey — I'm <strong>Thomas Zechariah</strong>, a Computer Engineering student at <strong>Georgia Institute of Technology</strong> from <strong>Johns Creek, GA</strong>. I'm specializing in <strong>Computing Hardware & Emerging Architectures (CHEA)</strong> and <strong>Cybersecurity</strong>.</p>
-        <p>I came into Georgia Tech after attending <strong>Northview High School</strong>, where I excelled in rigorous coursework, was named for <strong>National Merit</strong>, and led multiple organizations as president and vice-president. I was also a <strong>Dual Enrollment student at Georgia Tech</strong> before officially enrolling as a freshman.</p>
-        <p>I grew up in a multilingual household and I'm fluent in <strong>English</strong> and <strong>Malayalam</strong>, with conversational <strong>Spanish</strong>. Outside of class, I'm on <strong>HyTech Racing's Electrical Team</strong>, and I also tutor through <strong>Knack</strong>. I'm always ready to learn more and meet new people, so don't hesitate to reach out.</p>
+        <p>Hey — I'm <strong>Thomas Zechariah</strong>, a Computer Engineering student at <strong>Georgia Institute of Technology</strong> from <strong>Johns Creek, GA</strong>. I'm specializing in <strong>Computing Hardware &amp; Emerging Architectures (CHEA)</strong> and <strong>Cybersecurity</strong>.</p>
+        <p>I came into Georgia Tech after attending <strong>Northview High School</strong>, where I excelled in rigorous coursework, was named for <strong>National Merit</strong>, and led multiple organizations as president and vice-president. I was also a <strong>Dual Enrollment student</strong>  at Georgia Tech before officially enrolling.</p>
+        <p>I'm fluent in <strong>English</strong> and <strong>Malayalam</strong>, and can speak conversational <strong>Spanish</strong>. Outside of class, I'm on <strong>HyTech Racing's Electrical Team</strong>, and I also tutor through <strong>Knack</strong>. I'm always ready to learn more and meet new people, so don't hesitate to reach out.</p>
       </div>
       <div class="about-stats reveal">
         <div class="stat-card"><div class="stat-value">4.0</div><div class="stat-label">GPA at Georgia Tech</div></div>
         <div class="stat-card"><div class="stat-value">11</div><div class="stat-label">AP Exams Scored a 5</div></div>
         <div class="stat-card"><div class="stat-value">3</div><div class="stat-label">Languages Spoken</div></div>
-        <div class="stat-card"><div class="stat-value">4+</div><div class="stat-label">Internships & Roles</div></div>
-        <div class="stat-card"><div class="stat-value">Nat'l</div><div class="stat-label">Merit Finalist</div></div>
+        <div class="stat-card"><div class="stat-value">Several</div><div class="stat-label">Internships &amp; Roles</div></div>
         <div class="stat-card"><div class="stat-value">GT '29</div><div class="stat-label">Expected Graduation</div></div>
       </div>
     </div>
@@ -226,19 +219,19 @@
         </div>
       </div>
       <div class="skill-group">
-        <div class="skill-group-label">Hardware & Embedded</div>
+        <div class="skill-group-label">Hardware &amp; Embedded</div>
         <div class="skill-tags">
           <span class="skill-tag">FPGAs</span><span class="skill-tag">Breadboards</span><span class="skill-tag">Oscilloscope</span><span class="skill-tag">Sensors</span><span class="skill-tag">Teensy MCU</span><span class="skill-tag">Soldering</span><span class="skill-tag">UART</span><span class="skill-tag">One-Wire</span><span class="skill-tag">IPMI</span>
         </div>
       </div>
       <div class="skill-group">
-        <div class="skill-group-label">Software & Platforms</div>
+        <div class="skill-group-label">Software &amp; Platforms</div>
         <div class="skill-tags">
           <span class="skill-tag">Linux (Ubuntu)</span><span class="skill-tag">Windows</span><span class="skill-tag">VS Code</span><span class="skill-tag">IntelliJ IDEA</span><span class="skill-tag">Altera Quartus</span><span class="skill-tag">SolidWorks</span><span class="skill-tag">Altium Designer</span><span class="skill-tag">Logger Pro</span>
         </div>
       </div>
       <div class="skill-group">
-        <div class="skill-group-label">Leadership & Languages</div>
+        <div class="skill-group-label">Leadership &amp; Languages</div>
         <div class="skill-tags">
           <span class="skill-tag">English (Fluent)</span><span class="skill-tag">Malayalam (Fluent)</span><span class="skill-tag">Spanish (Conversational)</span><span class="skill-tag">Team Leadership</span><span class="skill-tag">Executive Presentations</span><span class="skill-tag">Tutoring</span>
         </div>
@@ -247,92 +240,79 @@
   </section>
 
   <!-- EXPERIENCE -->
-  <section id="experience">
+  <section id="experience" style="background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
     <div class="section-header reveal">
       <span class="section-num">02</span>
       <h2 class="section-title">Experience</h2>
       <div class="section-line"></div>
     </div>
     <div class="timeline">
-
       <div class="timeline-item reveal">
         <div class="timeline-meta"><span class="timeline-role">Electrical Team Member</span><span class="timeline-date">Sep 2025 – Present</span></div>
         <div class="timeline-company">HyTech Racing · Georgia Tech</div>
-        <div class="timeline-desc"><p>HyTech Racing designs and builds a formula-style electric vehicle from scratch and competes nationally.</p><ul><li>Built and tested sensor transceivers using <strong>One-Wire & UART protocols</strong> with a <strong>Teensy microcontroller</strong>.</li><li>Performed soldering, assembly, and parts management for electrical components.</li></ul></div>
+        <div class="timeline-desc"><ul><li>Built and tested sensor transceivers using <strong>One-Wire &amp; UART protocols</strong> with a <strong>Teensy microcontroller</strong>.</li><li>Performed soldering, assembly, and parts management for electrical components.</li></ul></div>
       </div>
-
       <div class="timeline-item reveal">
         <div class="timeline-meta"><span class="timeline-role">Web Developer</span><span class="timeline-date">Feb – May 2025</span></div>
         <div class="timeline-company">IVue Robotics · Cumming, GA</div>
         <div class="timeline-desc"><ul><li>Developed multiple frontend features using <strong>Vue.js</strong>, enhancing UX and functionality.</li><li>Collaborated with designers on interactive elements, improving engagement across the site.</li></ul></div>
       </div>
-
       <div class="timeline-item reveal">
         <div class="timeline-meta"><span class="timeline-role">Digital Marketing Intern</span><span class="timeline-date">Aug 2024 – May 2025</span></div>
         <div class="timeline-company">FYEWEAR · Remote, Atlanta, GA</div>
         <div class="timeline-desc"><ul><li>Collaborated on competitor analysis and retention marketing to optimize company growth.</li><li>Analyzed website and eyewear market trends to provide strategic advertising recommendations.</li></ul></div>
       </div>
-
       <div class="timeline-item reveal">
         <div class="timeline-meta"><span class="timeline-role">Software Intern — SDR JSON Converter</span><span class="timeline-date">May – Aug 2024</span></div>
         <div class="timeline-company">AMI US Holdings Inc. · Norcross, GA</div>
         <div class="timeline-desc"><ul><li>Wrote 50% of a Python tool to convert Sensor Data Records into structured JSON using IPMI specifications.</li><li>Decoded SDRs at the bit level and presented results directly to AMI executives.</li><li>Expanded knowledge of OS fundamentals, algorithms, data structures, and networking.</li></ul></div>
       </div>
-
       <div class="timeline-item reveal">
         <div class="timeline-meta"><span class="timeline-role">IT Lab Intern / MIS Department</span><span class="timeline-date">May – Aug 2023</span></div>
         <div class="timeline-company">AMI US Holdings Inc. · Norcross, GA</div>
         <div class="timeline-desc"><ul><li>Managed and troubleshot 50+ company PCs; decommissioned legacy systems and ensured inventory readiness.</li><li>Repurposed parts from 40+ damaged systems and submitted inventory reports to HR.</li><li>Configured employee systems to integrate with the corporate network.</li></ul></div>
       </div>
-
     </div>
   </section>
 
   <!-- ACTIVITIES -->
-  <section id="activities" style="background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+  <section id="activities">
     <div class="section-header reveal">
       <span class="section-num">03</span>
       <h2 class="section-title">Activities</h2>
       <div class="section-line"></div>
     </div>
     <div class="timeline">
-
       <div class="timeline-item reveal">
         <div class="timeline-meta"><span class="timeline-role">Tutor</span><span class="timeline-date">2025 – Present</span></div>
         <div class="timeline-company">Knack Tutoring · Georgia Tech</div>
-        <div class="timeline-desc"><p>Provide peer tutoring to fellow Georgia Tech students in technical subjects, reinforcing concepts through one-on-one instruction.</p></div>
+        <div class="timeline-desc"><p>Provide peer tutoring to fellow Georgia Tech students in technical subjects through one-on-one instruction.</p></div>
       </div>
-
       <div class="timeline-item reveal">
         <div class="timeline-meta"><span class="timeline-role">Vice President</span><span class="timeline-date">Aug 2024 – May 2025</span></div>
         <div class="timeline-company">Computer Science National Honor Society · Northview HS</div>
-        <div class="timeline-desc"><p>Led chapter activities and helped peers develop Java and Python programming skills through workshops and peer instruction.</p></div>
+        <div class="timeline-desc"><p>Led chapter activities and helped peers develop programming skills through workshops and peer instruction.</p></div>
       </div>
-
       <div class="timeline-item reveal">
         <div class="timeline-meta"><span class="timeline-role">Representative</span><span class="timeline-date">Aug 2023 – May 2025</span></div>
         <div class="timeline-company">Principal Advisory Board · Northview HS</div>
         <div class="timeline-desc"><p>Served as a student representative to school leadership, communicating student concerns and contributing to school-wide decision-making.</p></div>
       </div>
-
       <div class="timeline-item reveal">
         <div class="timeline-meta"><span class="timeline-role">Emerging Leaders Program Graduate</span><span class="timeline-date">Aug 2023 – May 2024</span></div>
         <div class="timeline-company">Greater North Fulton Chamber of Commerce · Fulton County, GA</div>
         <div class="timeline-desc"><p>Completed a competitive leadership development program for high-achieving students in the North Fulton business community.</p></div>
       </div>
-
       <div class="timeline-item reveal">
         <div class="timeline-meta"><span class="timeline-role">President</span><span class="timeline-date">Aug 2021 – May 2025</span></div>
         <div class="timeline-company">121 Reach · Northview HS</div>
-        <div class="timeline-desc"><p>Led a student-run education-focused organization for nearly 4 years, overseeing programming, community outreach, and member development.</p></div>
+        <div class="timeline-desc"><p>Led a student-run non-profit tutoring organization for 4 years, presiding over all club affairs, including weekly meetings, events, and officer discussions. </p></div>
       </div>
-
       <div class="timeline-item reveal">
         <div class="timeline-meta"><span class="timeline-role">Volunteer</span><span class="timeline-date">Aug 2021 – May 2025</span></div>
-        <div class="timeline-company">National Beta & National Honor Society</div>
-        <div class="timeline-desc"><p>Active member of both National Beta and National Honor Society throughout high school, participating in service and academic enrichment activities.</p></div>
+        <div class="timeline-company">Beta Club</div>
+        <div class="timeline-desc"><p>Active member and volunteer of Beta throughout high school</p></div>
       </div>
-
     </div>
   </section>
 
@@ -344,36 +324,25 @@
       <div class="section-line"></div>
     </div>
     <div class="projects-grid">
-
       <div class="project-card featured reveal">
-        <span class="project-badge"> Discovery Project — Coming Soon</span>
+        <span class="project-badge">Discovery Project</span>
         <h3 class="project-title">ECE 1100 Discovery Project</h3>
         <div class="project-org">Georgia Institute of Technology · ECE 1100</div>
-        <p class="project-desc">Work in progress! <br><br><em style="color: var(--accent); font-style: normal;"> </em></p>
+        <p class="project-desc">Work in progress!</p>
         <div class="project-tech"><span class="tech-tag">ECE 1100</span><span class="tech-tag">Georgia Tech</span><span class="tech-tag">In Progress</span></div>
       </div>
-
       <div class="project-card reveal">
         <h3 class="project-title">SDR JSON Converter</h3>
         <div class="project-org">AMI US Holdings Inc. · Software Intern</div>
-        <p class="project-desc">Team-built software tool converting Sensor Data Records into structured JSON, enabling cleaner data workflows for firmware engineers at a global hardware company.<ul><li>Wrote 50% of the Python codebase using IPMI specifications.</li><li>Decoded SDRs at the bit level; presented directly to AMI executives.</li></ul></p>
+        <p class="project-desc">Team-built software tool converting Sensor Data Records into structured JSON.<ul><li>Wrote 50% of the Python codebase using IPMI specifications.</li><li>Decoded SDRs at the bit level; presented directly to AMI executives.</li></ul></p>
         <div class="project-tech"><span class="tech-tag">Python</span><span class="tech-tag">IPMI</span><span class="tech-tag">JSON</span><span class="tech-tag">Firmware</span></div>
       </div>
-
-      <div class="project-card reveal">
-        <h3 class="project-title">IVue Robotics Website</h3>
-        <div class="project-org">IVue Robotics · Web Developer</div>
-        <p class="project-desc">Contributed frontend features to an open-source drone and robotics company's public website, improving UX through interactive design elements.<ul><li>Built features using Vue.js.</li><li>Collaborated directly with designers on UX patterns.</li></ul></p>
-        <div class="project-tech"><span class="tech-tag">Vue.js</span><span class="tech-tag">HTML/CSS/JS</span><span class="tech-tag">UX Design</span></div>
-      </div>
-
       <div class="project-card reveal">
         <h3 class="project-title">HyTech EV Sensor Transceivers</h3>
         <div class="project-org">HyTech Racing · Electrical Team</div>
-        <p class="project-desc">Hardware work on a formula-style electric race car, focused on sensor communication systems critical to vehicle telemetry.<ul><li>Built and tested transceivers using One-Wire & UART protocols.</li><li>Programmed with a Teensy microcontroller; performed soldering and parts management.</li></ul></p>
+        <p class="project-desc">Hardware work on an electric race car, focused on sensor communication systems.<ul><li>Built and tested transceivers using One-Wire &amp; UART protocols.</li><li>Programmed with a Teensy microcontroller.</li></ul></p>
         <div class="project-tech"><span class="tech-tag">UART</span><span class="tech-tag">One-Wire</span><span class="tech-tag">Teensy</span><span class="tech-tag">Embedded</span></div>
       </div>
-
     </div>
   </section>
 
@@ -381,7 +350,7 @@
   <section id="awards" style="background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
     <div class="section-header reveal">
       <span class="section-num">05</span>
-      <h2 class="section-title">Honors & Awards</h2>
+      <h2 class="section-title">Honors &amp; Awards</h2>
       <div class="section-line"></div>
     </div>
     <div class="awards-grid">
@@ -389,16 +358,14 @@
       <div class="award-card reveal"><div class="award-icon">🥉</div><div><div class="award-title">FBLA NLC: 3rd Place — Computer Problem Solving</div><div class="award-issuer">FBLA · Jul 2024</div></div></div>
       <div class="award-card reveal"><div class="award-icon">🏅</div><div><div class="award-title">FBLA SLC: 6th Place — Public Service Announcement</div><div class="award-issuer">FBLA · Mar 2023</div></div></div>
       <div class="award-card reveal"><div class="award-icon">🎓</div><div><div class="award-title">UGA Certificate of Merit</div><div class="award-issuer">University of Georgia · Apr 2024</div></div></div>
-      <div class="award-card reveal"><div class="award-icon">🏥</div><div><div class="award-title">21CL Healthcare & IT Summer Institute — Accepted</div><div class="award-issuer">21CL · Mar 2024</div></div></div>
       <div class="award-card reveal"><div class="award-icon">🌐</div><div><div class="award-title">National Spanish Exam — Gold Level</div><div class="award-issuer">NSE · May 2022</div></div></div>
       <div class="award-card reveal"><div class="award-icon">📖</div><div><div class="award-title">Sunday School Regional Exam: 10th Grade with Distinction</div><div class="award-issuer">MSOSSA · Mar 2023</div></div></div>
       <div class="award-card reveal"><div class="award-icon">🌿</div><div><div class="award-title">BETA NLC: 7th Place — Agriscience</div><div class="award-issuer">BETA · Jun 2022</div></div></div>
     </div>
     <div class="reveal" style="margin-top: 2.5rem; background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 2rem;">
       <div style="font-family: var(--mono-font); font-size: 0.72rem; color: var(--accent2); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1rem;">AP Exam Scores — Northview High School</div>
-      <p style="color: var(--muted); font-size: 0.9rem; font-weight: 300; margin-bottom: 1rem;">Earned a <strong style="color: var(--text);">5</strong> on 11 of 12 AP exams:</p>
       <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
-        <span class="skill-tag">AP Physics C: Mechanics (5)</span><span class="skill-tag">AP Physics C: E&M (5)</span><span class="skill-tag">AP Calc BC (5)</span><span class="skill-tag">AP Chemistry (5)</span><span class="skill-tag">AP Biology (5)</span><span class="skill-tag">AP Statistics (5)</span><span class="skill-tag">AP CS A (5)</span><span class="skill-tag">AP Env. Science (5)</span><span class="skill-tag">AP Language (5)</span><span class="skill-tag">AP Psychology (5)</span><span class="skill-tag">AP World History (5)</span><span class="skill-tag">AP Government (4)</span>
+        <span class="skill-tag">AP Physics C: Mechanics (5)</span><span class="skill-tag">AP Physics C: E&amp;M (5)</span><span class="skill-tag">AP Calc BC (5)</span><span class="skill-tag">AP Chemistry (5)</span><span class="skill-tag">AP Biology (5)</span><span class="skill-tag">AP Statistics (5)</span><span class="skill-tag">AP CS A (5)</span><span class="skill-tag">AP Env. Science (5)</span><span class="skill-tag">AP Language (5)</span><span class="skill-tag">AP Psychology (5)</span><span class="skill-tag">AP World History (5)</span><span class="skill-tag">AP Government (4)</span>
       </div>
     </div>
   </section>
@@ -428,8 +395,45 @@
         <div class="course-desc">Java-based course covering object-oriented design principles, inheritance, polymorphism, interfaces, and software engineering fundamentals.</div>
       </div>
       <div class="course-card reveal">
-        <div class="course-title">Data Structures & Algorithms</div>
+        <div class="course-title">Data Structures &amp; Algorithms</div>
         <div class="course-desc">In-depth study of fundamental data structures and algorithm theory, and applications of such concepts.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAREER GOALS -->
+  <section id="goals" style="background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+    <div class="section-header reveal">
+      <span class="section-num">07</span>
+      <h2 class="section-title">Career Goals</h2>
+      <div class="section-line"></div>
+    </div>
+    <p class="goals-intro reveal">I'm studying Computer Engineering at Georgia Tech with a focus on hardware and cybersecurity. My goal is to build technical skills early on and turn them to support a career doing meaningful engineering work in those focuses.</p>
+    <div class="goals-milestones reveal">
+      <div class="milestone-card">
+        <div class="milestone-label">5-Year Goal</div>
+        <div class="milestone-text">Complete Georgia Tech's BS/MS program and begin my career in hardware or cybersecurity.</div>
+      </div>
+      <div class="milestone-card">
+        <div class="milestone-label">10-Year Goal</div>
+        <div class="milestone-text">Land a stable, senior-level role in hardware or security — and eventually move into a lead engineering position.</div>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="goals-steps-label">How I'm getting there</div>
+      <div class="goals-steps">
+        <div class="goal-step">
+          <span class="goal-step-num">01</span>
+          <span class="goal-step-text">Keep working in HyTech Racing's Electrical Team — PCB design and embedded systems.</span>
+        </div>
+        <div class="goal-step">
+          <span class="goal-step-num">02</span>
+          <span class="goal-step-text">Build experience with internships each summer, focused on firmware or cybersecurity.</span>
+        </div>
+        <div class="goal-step">
+          <span class="goal-step-num">03</span>
+          <span class="goal-step-text">Start undergraduate research in CHEA or cybersecurity to gain additional experience.</span>
+        </div>
       </div>
     </div>
   </section>
@@ -437,18 +441,12 @@
   <!-- RESUME -->
   <section id="resume">
     <div class="section-header reveal" style="justify-content: center; flex-direction: column; align-items: center; text-align: center;">
-      <span class="section-num">07</span>
+      <span class="section-num">08</span>
       <h2 class="section-title">Resume</h2>
     </div>
     <div class="resume-box reveal">
       <h3>Thomas Zechariah</h3>
-      <p>Computer Engineering @ Georgia Tech · CHEA & Cybersecurity · Class of 2029</p>
-      <div class="resume-highlights">
-        <div class="res-item"><div class="val">4.0</div><div class="lbl">GPA</div></div>
-        <div class="res-item"><div class="val">4+</div><div class="lbl">Internships</div></div>
-        <div class="res-item"><div class="val">11</div><div class="lbl">AP Fives</div></div>
-      </div>
-      <p style="font-size: 0.85rem; margin-bottom: 1.5rem;">Download my full resume — formatted for the GT Career Fair and ready to share with recruiters.</p>
+      <p>Computer Engineering @ Georgia Tech · CHEA &amp; Cybersecurity · Class of 2029</p>
       <a href="resume.pdf" class="btn btn-primary" target="_blank">Download Resume (PDF)</a>
     </div>
   </section>
@@ -456,13 +454,12 @@
   <!-- CONTACT -->
   <section id="contact">
     <div class="section-header reveal">
-      <span class="section-num">08</span>
+      <span class="section-num">09</span>
       <h2 class="section-title">Contact</h2>
       <div class="section-line"></div>
     </div>
-    <div class="contact-info reveal">
-      <h3>Let's Connect</h3>
-      <p>Whether you're a recruiter, researcher, fellow engineer, or just want to talk — I'd love to hear from you. Always open to internship opportunities, research collaborations, and interesting conversations.</p>
+    <div class="reveal">
+      <h3 style="font-family: var(--heading-font); font-size: 2rem; margin-bottom: 1.5rem;">Let's Connect</h3>
       <div class="contact-links">
         <a href="mailto:thomaszechariah2007@gmail.com" class="contact-link"><span class="contact-link-icon">✉</span>thomaszechariah2007@gmail.com</a>
         <a href="tel:4705407910" class="contact-link"><span class="contact-link-icon">☎</span>(470) 540-7910</a>
@@ -472,8 +469,7 @@
   </section>
 
   <footer>
-    <p>© 2025 Thomas Zechariah · Georgia Tech Computer Engineering · Class of 2029</p>
-    <p>Built with HTML/CSS/JS · Hosted on GitHub Pages</p>
+    <p>Thomas Zechariah · Georgia Tech Computer Engineering · Class of 2029</p>
   </footer>
 
   <script>
