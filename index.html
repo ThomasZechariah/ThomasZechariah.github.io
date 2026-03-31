@@ -112,6 +112,18 @@
     .course-title { font-weight: 600; margin-bottom: 0.4rem; font-size: 0.93rem; color: var(--text); }
     .course-desc { font-size: 0.83rem; color: var(--muted); font-weight: 300; }
 
+    /* Career Goals */
+    .goals-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-bottom: 2.5rem; }
+    .goal-card { background: var(--surface2); border: 1px solid var(--border); border-radius: 6px; padding: 1.4rem; transition: border-color 0.2s; }
+    .goal-card:hover { border-color: var(--accent); }
+    .goal-card-label { font-family: var(--mono-font); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.6rem; }
+    .goal-card-label.green { color: var(--accent); }
+    .goal-card-label.blue  { color: var(--accent2); }
+    .goal-card-text { font-size: 0.93rem; color: var(--muted); font-weight: 300; line-height: 1.65; }
+    .goal-steps { display: flex; flex-direction: column; gap: 0.8rem; }
+    .goal-step { display: flex; align-items: flex-start; gap: 1rem; font-size: 0.93rem; color: var(--muted); font-weight: 300; line-height: 1.6; }
+    .goal-step-num { font-family: var(--mono-font); font-size: 0.7rem; color: var(--accent); min-width: 20px; margin-top: 3px; }
+
     #resume { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); text-align: center; }
     .resume-box { max-width: 640px; margin: 0 auto; background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 2.8rem; }
     .resume-box h3 { font-family: var(--heading-font); font-size: 1.8rem; margin-bottom: 0.8rem; }
@@ -142,6 +154,7 @@
       section { padding: 4rem 1.5rem; }
       #home { padding: 7rem 1.5rem 3rem; }
       .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .goals-grid { grid-template-columns: 1fr; }
       footer { flex-direction: column; gap: 0.5rem; text-align: center; padding: 1.5rem; }
       .resume-highlights { grid-template-columns: 1fr 1fr; }
     }
@@ -163,6 +176,7 @@
       <li><a href="#activities">Activities</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#awards">Awards</a></li>
+      <li><a href="#career-goals">Goals</a></li>
       <li><a href="#resume">Resume</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -177,17 +191,8 @@
       <span class="hero-tag">Computer Engineering @ Georgia Tech · Class of 2029</span>
       <h1 class="hero-name">Thomas<br><em>Zechariah</em></h1>
       <p class="hero-sub">Specializing in Computing Hardware & Emerging Architectures and Cybersecurity. 4.0 GPA. National Merit Finalist. Trilingual. Hands-on engineer.</p>
-      <div class="hero-badges">
-        <span class="hero-badge">🏆 National Merit Finalist</span>
-        <span class="hero-badge">🥉 FBLA NLC 3rd Place</span>
-        <span class="hero-badge">⚡ HyTech Racing</span>
-        <span class="hero-badge">📡 FPGA & Embedded Systems</span>
-        <span class="hero-badge">🌐 Trilingual</span>
-      </div>
-      <div class="hero-cta">
-        <a href="#projects" class="btn btn-primary">View My Work</a>
-        <a href="#contact" class="btn btn-outline">Get In Touch</a>
-      </div>
+
+
     </div>
   </section>
 
@@ -208,8 +213,8 @@
         <div class="stat-card"><div class="stat-value">4.0</div><div class="stat-label">GPA at Georgia Tech</div></div>
         <div class="stat-card"><div class="stat-value">11</div><div class="stat-label">AP Exams Scored a 5</div></div>
         <div class="stat-card"><div class="stat-value">3</div><div class="stat-label">Languages Spoken</div></div>
-        <div class="stat-card"><div class="stat-value">4+</div><div class="stat-label">Internships & Roles</div></div>
-        <div class="stat-card"><div class="stat-value">Nat'l</div><div class="stat-label">Merit Finalist</div></div>
+        <div class="stat-card"><div class="stat-value">Several</div><div class="stat-label">Internships & Roles</div></div>
+
         <div class="stat-card"><div class="stat-value">GT '29</div><div class="stat-label">Expected Graduation</div></div>
       </div>
     </div>
@@ -258,7 +263,7 @@
       <div class="timeline-item reveal">
         <div class="timeline-meta"><span class="timeline-role">Electrical Team Member</span><span class="timeline-date">Sep 2025 – Present</span></div>
         <div class="timeline-company">HyTech Racing · Georgia Tech</div>
-        <div class="timeline-desc"><p>HyTech Racing designs and builds a formula-style electric vehicle from scratch and competes nationally.</p><ul><li>Built and tested sensor transceivers using <strong>One-Wire & UART protocols</strong> with a <strong>Teensy microcontroller</strong>.</li><li>Performed soldering, assembly, and parts management for electrical components.</li></ul></div>
+        <div class="timeline-desc"><ul><li>Built and tested sensor transceivers using <strong>One-Wire & UART protocols</strong> with a <strong>Teensy microcontroller</strong>.</li><li>Performed soldering, assembly, and parts management for electrical components.</li></ul></div>
       </div>
 
       <div class="timeline-item reveal">
@@ -396,7 +401,7 @@
     </div>
     <div class="reveal" style="margin-top: 2.5rem; background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 2rem;">
       <div style="font-family: var(--mono-font); font-size: 0.72rem; color: var(--accent2); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1rem;">AP Exam Scores — Northview High School</div>
-      <p style="color: var(--muted); font-size: 0.9rem; font-weight: 300; margin-bottom: 1rem;">Earned a <strong style="color: var(--text);">5</strong> on 11 of 12 AP exams:</p>
+
       <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
         <span class="skill-tag">AP Physics C: Mechanics (5)</span><span class="skill-tag">AP Physics C: E&M (5)</span><span class="skill-tag">AP Calc BC (5)</span><span class="skill-tag">AP Chemistry (5)</span><span class="skill-tag">AP Biology (5)</span><span class="skill-tag">AP Statistics (5)</span><span class="skill-tag">AP CS A (5)</span><span class="skill-tag">AP Env. Science (5)</span><span class="skill-tag">AP Language (5)</span><span class="skill-tag">AP Psychology (5)</span><span class="skill-tag">AP World History (5)</span><span class="skill-tag">AP Government (4)</span>
       </div>
@@ -434,20 +439,46 @@
     </div>
   </section>
 
+  <!-- CAREER GOALS -->
+  <section id="career-goals" style="background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+    <div class="section-header reveal">
+      <span class="section-num">07</span>
+      <h2 class="section-title">Career Goals</h2>
+      <div class="section-line"></div>
+    </div>
+    <p class="reveal" style="color: var(--muted); font-size: 1rem; font-weight: 300; max-width: 680px; margin-bottom: 2.5rem; line-height: 1.7;">
+      I'm studying Computer Engineering at Georgia Tech with a focus on hardware and cybersecurity. My goal is to build technical skills early on and turn them to support a career doing meaningful engineering work in those focuses.
+    </p>
+    <div class="goals-grid reveal">
+      <div class="goal-card">
+        <div class="goal-card-label green">5-Year Goal</div>
+        <div class="goal-card-text">Complete Georgia Tech's BS/MS program and begin my career in hardware or cybersecurity.</div>
+      </div>
+      <div class="goal-card">
+        <div class="goal-card-label blue">10-Year Goal</div>
+        <div class="goal-card-text">Land a stable, senior-level role in hardware or security — and eventually move into a lead engineering position.</div>
+      </div>
+    </div>
+    <div class="reveal">
+      <div style="font-family: var(--mono-font); font-size: 0.72rem; color: var(--accent2); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1.2rem;">How I'm getting there</div>
+      <div class="goal-steps">
+        <div class="goal-step"><span class="goal-step-num">01</span>Keep working in HyTech Racing's Electrical Team — PCB design and embedded systems.</div>
+        <div class="goal-step"><span class="goal-step-num">02</span>Build experience with internships each summer, focused on firmware or cybersecurity.</div>
+        <div class="goal-step"><span class="goal-step-num">03</span>Start undergraduate research in CHEA or cybersecurity to gain additional experience.</div>
+      </div>
+    </div>
+  </section>
+
   <!-- RESUME -->
   <section id="resume">
     <div class="section-header reveal" style="justify-content: center; flex-direction: column; align-items: center; text-align: center;">
-      <span class="section-num">07</span>
+      <span class="section-num">08</span>
       <h2 class="section-title">Resume</h2>
     </div>
     <div class="resume-box reveal">
       <h3>Thomas Zechariah</h3>
       <p>Computer Engineering @ Georgia Tech · CHEA & Cybersecurity · Class of 2029</p>
-      <div class="resume-highlights">
-        <div class="res-item"><div class="val">4.0</div><div class="lbl">GPA</div></div>
-        <div class="res-item"><div class="val">4+</div><div class="lbl">Internships</div></div>
-        <div class="res-item"><div class="val">11</div><div class="lbl">AP Fives</div></div>
-      </div>
+
       <p style="font-size: 0.85rem; margin-bottom: 1.5rem;">Download my full resume — formatted for the GT Career Fair and ready to share with recruiters.</p>
       <a href="resume.pdf" class="btn btn-primary" target="_blank">Download Resume (PDF)</a>
     </div>
@@ -456,15 +487,15 @@
   <!-- CONTACT -->
   <section id="contact">
     <div class="section-header reveal">
-      <span class="section-num">08</span>
+      <span class="section-num">09</span>
       <h2 class="section-title">Contact</h2>
       <div class="section-line"></div>
     </div>
     <div class="contact-info reveal">
       <h3>Let's Connect</h3>
-      <p>Whether you're a recruiter, researcher, fellow engineer, or just want to talk — I'd love to hear from you. Always open to internship opportunities, research collaborations, and interesting conversations.</p>
+
       <div class="contact-links">
-        <a href="mailto:thomaszechariah2007@gmail.com" class="contact-link"><span class="contact-link-icon">✉</span>thomaszechariah2007@gmail.com</a>
+        <a href="/cdn-cgi/l/email-protection#87f3efe8eae6f4fde2e4efe6f5eee6efb5b7b7b0c7e0eae6eeeba9e4e8ea" class="contact-link"><span class="contact-link-icon">✉</span><span class="__cf_email__" data-cfemail="87f3efe8eae6f4fde2e4efe6f5eee6efb5b7b7b0c7e0eae6eeeba9e4e8ea">[email&#160;protected]</span></a>
         <a href="tel:4705407910" class="contact-link"><span class="contact-link-icon">☎</span>(470) 540-7910</a>
         <a href="https://www.linkedin.com/in/thomas-zechariah-9a05472aa/" target="_blank" class="contact-link"><span class="contact-link-icon">in</span>LinkedIn</a>
       </div>
@@ -476,12 +507,6 @@
     <p>Built with HTML/CSS/JS · Hosted on GitHub Pages</p>
   </footer>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
-    }, { threshold: 0.08 });
-    reveals.forEach(el => observer.observe(el));
-  </script>
-</body>
-</html>
+    co
