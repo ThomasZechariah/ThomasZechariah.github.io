@@ -396,13 +396,99 @@
       <div class="section-line"></div>
     </div>
     <div class="projects-grid">
+
       <div class="project-card featured reveal">
         <span class="project-badge">Discovery Project</span>
-        <h3 class="project-title">ECE 1100 Discovery Project</h3>
+        <h3 class="project-title">ECE 1100 Discovery Project: HyTech Maintenance Panel Board</h3>
         <div class="project-org">Georgia Institute of Technology · ECE 1100</div>
-        <p class="project-desc">Work in progress!</p>
-        <div class="project-tech"><span class="tech-tag">ECE 1100</span><span class="tech-tag">Georgia Tech</span></div>
+        <div class="project-desc">
+          <p style="margin-bottom:0.8rem;">The Maintenance Panel Board (MPB) is designed for HyTech Racing and dynamically controls the pumps and fans on the EV and measures the Low-Voltage (LV) current (UART communication required).</p>
+
+          <div style="margin-bottom:1rem;">
+            <div style="font-family:var(--mono-font);font-size:0.72rem;color:var(--accent2);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.5rem;">Project Goals</div>
+            <ul>
+              <li>Design a functional schematic</li>
+              <li>Create PCB layout in Altium</li>
+              <li>Present to HyTech Leads</li>
+            </ul>
+          </div>
+
+          <div style="margin-bottom:1rem;">
+            <div style="font-family:var(--mono-font);font-size:0.72rem;color:var(--accent2);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.5rem;">Progress</div>
+            <ul>
+              <li><strong>Pump/Fan Control:</strong> Implemented N-channel MOSFET circuitry on the low side to control power to pumps and fans based on the control signal from the VCR (board containing Teensy) via a 4x2 Molex connector.</li>
+              <li><strong>Current Sensing:</strong> Selected ACS712, a Fully Integrated Hall-Effect-Based Linear Current Sensor (20A). Used Application 4 from the datasheet, routing the MPB ground to IP+ and the negative terminal of LV battery to IP-.</li>
+              <li><strong>ADC:</strong> Chose ADS122U04, a 24-bit UART ADC, to convert the analog current signal to digital.</li>
+              <li><strong>Power:</strong> 24V from LV is stepped down to 5V using a buck converter, and then to 3.3V using a linear regulator, to get the power required for the ADC.</li>
+            </ul>
+          </div>
+
+          <div style="margin-bottom:1rem;">
+            <div style="font-family:var(--mono-font);font-size:0.72rem;color:var(--accent);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.5rem;">Successes</div>
+            <ul>
+              <li>Successfully designed the complete schematic and PCB layout</li>
+              <li>The ADC has 4 channels, allowing for more uses in later revisions</li>
+              <li>Gained understanding in the PCB design process</li>
+            </ul>
+          </div>
+
+          <div style="margin-bottom:1rem;">
+            <div style="font-family:var(--mono-font);font-size:0.72rem;color:var(--accent3);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.5rem;">Roadblocks</div>
+            <ul>
+              <li>Originally selected MLX921231 as the current sensor due to its built-in UART; however, getting UART to work became unfeasible as the IC would have to be reprogrammed and expensive components would need to be bought.</li>
+              <li>Switched to the ACS712 + ADS122U04 combination, which required reworking the schematic.</li>
+            </ul>
+          </div>
+
+          <div style="margin-bottom:1rem;">
+            <div style="font-family:var(--mono-font);font-size:0.72rem;color:var(--accent2);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.5rem;">Technical Skills Gained</div>
+            <ul>
+              <li>Greater datasheet comprehension</li>
+              <li>Creating working schematics</li>
+              <li>Doing PCB layout with Altium</li>
+              <li>Evaluating and selecting ICs based on constraints</li>
+            </ul>
+          </div>
+
+          <div style="margin-bottom:1rem;">
+            <div style="font-family:var(--mono-font);font-size:0.72rem;color:var(--accent2);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.8rem;">Schematics</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;">
+              <div>
+                <img src="s1.png" alt="Schematic 1" style="width:100%;border-radius:4px;border:1px solid var(--border);display:block;" />
+                <div style="font-family:var(--mono-font);font-size:0.68rem;color:var(--muted);text-align:center;margin-top:0.4rem;">s1.png</div>
+              </div>
+              <div>
+                <img src="s2.png" alt="Schematic 2" style="width:100%;border-radius:4px;border:1px solid var(--border);display:block;" />
+                <div style="font-family:var(--mono-font);font-size:0.68rem;color:var(--muted);text-align:center;margin-top:0.4rem;">s2.png</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-bottom:1rem;">
+            <div style="font-family:var(--mono-font);font-size:0.72rem;color:var(--accent2);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.8rem;">PCB Layout</div>
+            <div>
+              <img src="l1.png" alt="PCB Layout" style="width:100%;border-radius:4px;border:1px solid var(--border);display:block;" />
+              <div style="font-family:var(--mono-font);font-size:0.68rem;color:var(--muted);text-align:center;margin-top:0.4rem;">l1.png</div>
+            </div>
+          </div>
+
+          <div style="background:rgba(0,212,170,0.05);border:1px solid rgba(0,212,170,0.15);border-radius:4px;padding:0.9rem 1rem;font-size:0.9rem;color:var(--muted);font-style:italic;">
+            This was a demanding project as it was a real deliverable for HyTech Racing, and it solidified my interest in hardware design. I hope to continue testing and see the board work on the car.
+          </div>
+        </div>
+        <div class="project-tech" style="margin-top:1.4rem;">
+          <span class="tech-tag">Altium Designer</span>
+          <span class="tech-tag">PCB Layout</span>
+          <span class="tech-tag">UART</span>
+          <span class="tech-tag">MOSFET</span>
+          <span class="tech-tag">ACS712</span>
+          <span class="tech-tag">ADS122U04</span>
+          <span class="tech-tag">Buck Converter</span>
+          <span class="tech-tag">ECE 1100</span>
+          <span class="tech-tag">Georgia Tech</span>
+        </div>
       </div>
+
       <div class="project-card reveal">
         <h3 class="project-title">SDR JSON Converter</h3>
         <div class="project-org">AMI US Holdings Inc. · Software Intern</div>
